@@ -37,7 +37,7 @@ const Footer = () => {
               >
                 <Facebook size={24} />
               </a>
-              <a
+              {/* <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -45,8 +45,8 @@ const Footer = () => {
                 aria-label="Instagram"
               >
                 <Instagram size={24} />
-              </a>
-              <a
+              </a> */}
+              {/* <a
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -54,7 +54,7 @@ const Footer = () => {
                 aria-label="YouTube"
               >
                 <Youtube size={24} />
-              </a>
+              </a> */}
             </div>
           </div>
 
