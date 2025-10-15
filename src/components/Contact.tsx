@@ -23,9 +23,30 @@ const Contact = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ Updated handleSubmit function — redirects to WhatsApp
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you! We'll get back to you soon.");
+
+    const name = (document.getElementById("name") as HTMLInputElement).value;
+    const email = (document.getElementById("email") as HTMLInputElement).value;
+    const message = (document.getElementById("message") as HTMLTextAreaElement).value;
+
+    const phoneNumber = "919895561010"; // your WhatsApp number
+
+    const text = `Hello! 👋\n\nNew contact form submission:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+    const encodedText = encodeURIComponent(text);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappURL, "_blank");
+
+    // Show success toast
+    toast.success("Redirecting to WhatsApp...");
+
+    // Optional: clear form fields
+    (document.getElementById("name") as HTMLInputElement).value = "";
+    (document.getElementById("email") as HTMLInputElement).value = "";
+    (document.getElementById("message") as HTMLTextAreaElement).value = "";
   };
 
   return (
@@ -99,7 +120,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1 text-lg">Email</h4>
-                    <p className="text-muted-foreground">amazekylm@gmail.com </p>
+                    <p className="text-muted-foreground">amazekylm@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -107,17 +128,16 @@ const Contact = () => {
 
             {/* Map */}
             <div className="glass-card rounded-3xl overflow-hidden shadow-glass h-80 hover:scale-105 transition-bounce">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3938.738966324923!2d76.49070087478255!3d9.178002990889386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b061dc82f11195d%3A0x2f15c927cfb4295a!2sAmaze%20Ads!5e0!3m2!1sen!2sin!4v1760439630697!5m2!1sen!2sin"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-  />
-</div>
-
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3938.738966324923!2d76.49070087478255!3d9.178002990889386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b061dc82f11195d%3A0x2f15c927cfb4295a!2sAmaze%20Ads!5e0!3m2!1sen!2sin!4v1760439630697!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
 
           {/* Contact Form */}
