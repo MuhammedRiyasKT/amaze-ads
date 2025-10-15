@@ -101,10 +101,10 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-display font-bold mb-6">Services</h3>
             <ul className="space-y-3">
+              <li className="text-white/80 text-lg">Custom Printing</li>
+              <li className="text-white/80 text-lg">Branding Solutions</li>
               <li className="text-white/80 text-lg">Digital Marketing</li>
-              <li className="text-white/80 text-lg">Content Creation</li>
-              <li className="text-white/80 text-lg">Signage & Printing</li>
-              <li className="text-white/80 text-lg">Online Courses</li>
+              <li className="text-white/80 text-lg">Interior & Display Solutions</li>
             </ul>
           </div>
         </div>
